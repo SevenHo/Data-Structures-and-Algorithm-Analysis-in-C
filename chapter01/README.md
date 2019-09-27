@@ -13,3 +13,6 @@
 
 **notes:**
 
+## Exercise 1.2
+
++ [code](ex1.2_algorithm-1.0.c)
