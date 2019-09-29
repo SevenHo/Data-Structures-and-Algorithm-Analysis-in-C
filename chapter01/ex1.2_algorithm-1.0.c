@@ -3,6 +3,7 @@
 #include <string.h>
 
 /**
+ *  Exercise 1.2:
  *  word puzzle problem
  *  输入n阶的字母矩阵,和单词表
  *  输出字谜中的单词,(水平、垂直、对角线方向)

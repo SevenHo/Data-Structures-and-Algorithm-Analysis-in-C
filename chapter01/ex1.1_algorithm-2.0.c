@@ -7,6 +7,7 @@ void bubble_sort(int *array, int length);
 void array_print(int *array, int length);
 
 /*
+    Exercise 1.1:
     selection problem
     有一组 N 个数而要确定其中第 k 个最大数
 

@@ -6,6 +6,7 @@ int sel_problem_2(int *list, int N, int k);
 
 
 /*
+    Exercise 1.1:
     selection problem
     有一组 N 个数而要确定其中第 k 个最大数
 
