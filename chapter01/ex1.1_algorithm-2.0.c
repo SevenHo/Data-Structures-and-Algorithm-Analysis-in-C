@@ -46,6 +46,7 @@ int main(void)
     printf("\nnumber of NO.k : %d\n", k);
     printf("\ntotal time is : %d s", end_time - start_time);
 
+    free(list);
     return 0;
 }
 

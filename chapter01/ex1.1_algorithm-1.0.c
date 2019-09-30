@@ -40,7 +40,11 @@ int main(void)
 
     time_t start_time = time(NULL);
     list = (int *)malloc(sizeof(int) * N); // 初始化N个int大小的空间
-
+    if(list == NULL)
+    {
+        printf("\nfailed to allocate memories\n");
+        exit(1);
+    }
     int randnum;
     int *list_temp;
     list_temp = list;
@@ -62,7 +66,7 @@ int main(void)
 
     printf("\ntotal time : %d \n", end_time - start_time);
 
-    // free(list);
+    free(list);
 
     // getchar();
     // getchar();
