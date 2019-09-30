@@ -20,7 +20,7 @@ void trim(char *str, char *dest);
 
 int main(void)
 {
-    
+
     puts("\n-----------------start--------------------");
     processFile("ex1.4_file.c");
     puts("\n------------------end---------------------");
@@ -39,8 +39,8 @@ void processFile(const char *filename)
     }
     char temp[1024];
     while (fgets(buff, 1024, fp)) // 读到文件尾
-    {   
-        memset(temp,'\0',1024);
+    {
+        memset(temp, '\0', 1024);
         trim(buff, temp);
         if (strncmp(temp, "#include", 8) == 0)
         {
@@ -67,7 +67,7 @@ void trim(char *str, char *dest)
     {
         start++;
     }
-    if(*(str+end) == '\n' || *(str+end)== '\r')
+    if (*(str + end) == '\n' || *(str + end) == '\r')
     {
         end--;
     }

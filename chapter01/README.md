@@ -16,3 +16,12 @@
 ## Exercise 1.2
 
 + [code](ex1.2_algorithm-1.0.c)
+
+## Exercise 1.3
+
++ [code](ex1.3_algorithm-1.0.c)
+
+## Exercise 1.4
+
++ [code](ex1.4_algorithm-1.0.c)
+
