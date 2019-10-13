@@ -62,4 +62,6 @@ for (int i = 0; i < length; i++)
 随机产生未出现的数的概率为：$$p = \frac{N-i}{N}$$ ,独立随机试验的期望次数为：$$\frac{N}{N-i}$$,则$$\sum_{i=0}^{N-i}\frac{N \cdot i}{N-i} < \sum_{i=0}^{N-i}\frac{N^2}{N-i} < N^2\sum_{i=0}^{N-i}\frac{1}{N-i}< N^2logN$$ 
 
 ---
+## Exercise 2.19
++ [code](./ex2.19_algorithm-1.0.c)
 
