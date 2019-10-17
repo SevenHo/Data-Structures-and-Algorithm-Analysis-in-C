@@ -115,6 +115,24 @@ void printf_list(List L)
     }
     printf("]\n");
 }
+
+
+/**
+ * 第一个节点
+ */ 
+Position first_pos(List L)
+{
+    Position p = L->next;
+    return p;
+}
+/**
+ * 下一个节点
+ */ 
+Position next_pos(Position P ,List L)
+{
+    return P->next;
+}
+/*
 int main(void)
 {
     List L;
@@ -135,3 +153,4 @@ int main(void)
     delete_e(4, L, 1);
     printf_list(L);
 }
+*/

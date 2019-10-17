@@ -35,4 +35,16 @@ void delete_e(ElementType e, LinkList L, int boolean);
  * 查找元素第一次出现的位置节点
  */
 Position find(ElementType e, LinkList L);
+/**
+ * 链表第一个元素
+ */
+Position first_pos(LinkList L);
+/**
+ * P位置下一个元素
+ */ 
+Position next_pos(Position P , LinkList L);
+/**
+ * 打印链表
+ */
+void print_list(LinkList L);
 #endif

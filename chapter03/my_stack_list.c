@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_stack_lish.h"
+#include "my_stack_list.h"
 
 struct Node
 {
@@ -90,7 +90,7 @@ ElementType top_pop(Stack S)
     pop(S);
     return e;
 }
-
+/*
 int main(void)
 {
     Stack S = NULL;
@@ -111,3 +111,4 @@ int main(void)
 
     return 0;
 }
+*/

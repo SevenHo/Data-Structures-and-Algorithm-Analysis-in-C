@@ -139,6 +139,22 @@ Position find(ElementType e, LinkList L)
     return p;
 }
 /**
+ * 链表第一个元素
+ */
+Position first_pos(LinkList L)
+{
+    Position p = L->next;
+    return p;
+}
+/**
+ * P位置下一个元素
+ */
+Position next_pos(Position P, LinkList L)
+{
+    return P->next;
+}
+
+/**
  * 打印链表
  */
 void print_list(LinkList L)
@@ -152,7 +168,7 @@ void print_list(LinkList L)
     }
     printf("]\n");
 }
-
+/*
 int main(void)
 {
     LinkList L;
@@ -174,3 +190,4 @@ int main(void)
     print_list(L);
     return 0;
 }
+*/

@@ -10,7 +10,7 @@ typedef struct aNode
 typedef Node *List;
 typedef Node *Position;
 /**
-     * 将链表置空,L为空，创建一个空数组
+     * 将链表置空;L为空,创建一个空链表
      */
 List make_empty(List L);
 /**
@@ -44,4 +44,13 @@ void insert(ElementType e, List L, Position p);
      * 打印链表
      */
 void printf_list(List L);
+
+/**
+ * 第一个节点
+ */ 
+Position first_pos(List L);
+/**
+ * 下一个节点
+ */ 
+Position next_pos(Position P,List L);
 #endif

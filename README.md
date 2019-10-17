@@ -15,3 +15,5 @@
 
 + [Chapter 2: Algorithm Analysis](./chapter02/README.md)
 
++ [Chapter 3: Lists,Stacks,Queues](./chapter03/README.md)
+
