@@ -11,12 +11,90 @@ typedef struct AvlNode
     AvlTree left;
     AvlTree right;
 } aAvlNode;
+/*********************Stack**************************/
+#define Max_Size 256
+typedef struct StackNode
+{   
+    /*stack*/
+    int top;
+    int flag[256]; /*后续遍历标志数组*/
+    /*queue*/
+    int front ;
+    int rear ;
+    int size ;
+    Position array[256];
+} Stack,Queue;
 
-// AvlTree static single_rotate_with_left(AvlTree T);
-// AvlTree static single_rotate_with_right(AvlTree T);
+int is_empty(Stack *S)
+{
+    return S->top == 0;
+}
+int is_full(Stack *S)
+{
+    return S->top == Max_Size;
+}
+Stack *create_stack()
+{
+    Stack *S = NULL;
+    S = malloc(sizeof(Stack));
+    if (!S)
+    {
+        exit(1);
+    }
+    S->top = 0;
+    return S;
+}
 
-// AvlTree static double_rotate_with_left(AvlTree T);
-// AvlTree static double_rotate_with_right(AvlTree T);
+void push(Position p, Stack *S)
+{
+    if (!is_full(S))
+    {
+        (S->array)[S->top++] = p;
+        S->flag[S->top - 1] = 1;
+    }
+}
+Position pop(Stack *S)
+{
+    if (!S)
+        return NULL;
+    return S->array[--S->top];
+}
+/*********************end stack*************************/
+Queue* create_queue(){
+    Queue *Q = NULL;
+    Q = (Queue*)malloc(sizeof(Queue));
+    if(!Q){
+        exit(1);
+    }
+    Q->size = 0;
+    Q->front = 0;
+    Q->rear = 0;
+
+    return Q;
+}
+
+void enquene(Position p , Queue* Q)
+{
+    if(Q->size < Max_Size)
+    {
+        Q->array[Q->rear++] = p;
+        Q->rear |= 8; 
+        Q->size++;
+    }
+}
+
+Position dequeue(Queue *Q)
+{
+    Position p = NULL;
+    if(Q->size > 0)
+    {
+        p = Q->array[Q->front++];
+        Q->size--;
+        Q->front |= 8;
+    }
+    return p;
+}
+/************************queue*****************************/
 
 AvlTree make_empty(AvlTree T)
 {
@@ -54,8 +132,8 @@ Position find(ElementType e, AvlTree T)
         {
             return T;
         }
-        return NULL;
     }
+    return NULL;
 }
 
 Position find_min(AvlTree T)
@@ -347,17 +425,108 @@ ElementType retrieve(Position P)
 }
 
 /**
- * 中序遍历
+ * 中序遍历--非递归
  */
 void inorder_traversal(AvlTree T)
 {
-
-    if (T)
+    Stack *S = create_stack();
+    Position p = T;
+    while (p || !is_empty(S))
     {
-        inorder_traversal(T->left);
-        printf("%2d ,", T->e);
-        inorder_traversal(T->right);
+        while (p)
+        {
+            push(p, S);
+            p = p->left;
+        }
+        if (!is_empty(S))
+        {
+            p = pop(S);
+            printf("%2d ,", p->e);
+            p = p->right;
+        }
     }
+}
+/**
+ * 前序遍历--非递归
+ */
+void preorder_traversal(AvlTree T)
+{
+    Stack *S = create_stack();
+    Position p = T;
+    while (p)
+    {
+        while (p)
+        {
+            printf("%2d ,", p->e);
+            push(p, S);
+            p = p->left;
+        }
+
+        do
+        {
+            p = pop(S);
+        } while (!p->right && !is_empty(S));
+
+        p = p->right;
+    }
+}
+
+/**
+ * 后续遍历--非递归
+ */
+void postorder_traversal(AvlTree T)
+{
+    Stack *S = create_stack();
+    Position p = T;
+    while (p || !is_empty(S))
+    {
+        while (p)
+        {
+            push(p, S);
+            p = p->left;
+        }
+        if (!is_empty(S))
+        {
+            p = pop(S);
+            if (p->right && S->flag[S->top] != 0) /*右子树是否遍历完成*/
+            {
+                push(p, S);
+                S->flag[S->top - 1] = 0;
+                p = p->right;
+            }
+            else
+            {
+                S->flag[S->top] = 1;
+                printf("%2d ,", p->e);
+                p = NULL;
+            }
+            // p = p->right;
+        }
+    }
+}
+
+/**
+ * 层序遍历 -- 队列
+ */
+void levelorder_traversal(AvlTree T)
+{
+    Queue *Q = create_queue();
+    enquene(T,Q);
+    while (Q->size > 0)
+    {
+        T = dequeue(Q);
+        printf("%2d ,",T->e);
+        if (T->left)
+        {
+            enquene(T->left,Q);
+        }
+        if(T->right)
+        {
+            enquene(T->right,Q);
+        }
+        
+    }
+    
 }
 
 int main(void)
@@ -373,9 +542,15 @@ int main(void)
     }
     T = insert(8, T);
     T = insert(9, T);
-    T = insert(17,T);
+    T = insert(17, T);
 
+    preorder_traversal(T);
+    printf("\n");
     inorder_traversal(T);
+    printf("\n");
+    postorder_traversal(T);
+    printf("\n");
+    levelorder_traversal(T);
     T = delete_e(3, T);
     T = delete_e(5, T);
     T = delete_e(6, T);

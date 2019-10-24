@@ -168,7 +168,9 @@ ElementType retrieve(Position P)
 {
     return P->e;
 }
-
+/**
+ * 前序遍历--递归
+ */ 
 void preorder_traversal(SearchTree T)
 {
     if(T)
@@ -179,7 +181,7 @@ void preorder_traversal(SearchTree T)
     }
 }
 /**
- * 中序遍历
+ * 中序遍历--递归
  */ 
 void inorder_traversal(SearchTree T){
     
@@ -191,7 +193,7 @@ void inorder_traversal(SearchTree T){
     }
 }
 /**
- * 后续遍历
+ * 后续遍历--递归
  */ 
 void postorder_traversal(SearchTree T)
 {
