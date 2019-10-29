@@ -28,3 +28,5 @@
 + Chapter 11: Amortized Analysis
 
 + [Extension](./extension/README.md)
+
++ [Solution Manual](./Solution Manual/)
