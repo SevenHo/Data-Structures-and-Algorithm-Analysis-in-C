@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * 计算多项式乘积
+ */
+
 typedef int ElemenetType;
 typedef struct Node *ptrNode;
 typedef ptrNode List;
@@ -58,11 +62,13 @@ void insert(int coef, int exp, List L)
 void dispose_list(List L)
 {
     ptrNode p = L->next;
+    ptrNode delcell;
     while (p)
     {
         L->next = p->next;
-        free(p);
+        delcell = p;
         p = p->next;
+        free(delcell);
     }
     free(L);
 }
@@ -95,14 +101,30 @@ void merge_list(List dest, List src)
         if (d->exponet == s->exponet)
         {
             d->coefficient *= s->coefficient;
+            s = s->next;
+            d = d->next;
         }
-        else
+        else if(d->exponet < s->exponet)
         {
+            
             insert(s->coefficient, s->exponet, dest);
-        }
-        s = s->next;
-        d = d->next;
+            s = s->next;
+            
+        }else
+        {
+            d = d->next;
+        }        
     }
+    if (s)
+    {
+        while (s)
+        {
+            insert(s->coefficient,s->exponet,dest);
+            s = s->next;
+        }
+        
+    }
+    
 }
 
 /**
@@ -149,32 +171,53 @@ List multiply_poly_alg_b(List p1, List p2, List p_mul)
 {
     ptrNode tpr1 = p1->next;
     ptrNode tpr2 = p2->next;
-    List tmp_l = create_list();
+    List tmp_l;
+
     while (tpr1) //O(M)
     {
+        tmp_l = create_list();
         while (tpr2) //O(N)
         {
             insert(tpr1->coefficient * tpr2->coefficient, tpr1->exponet + tpr2->exponet, tmp_l);
             tpr2 = tpr2->next;
         }
         merge_list(p_mul, tmp_l); // O(M)
+        dispose_list(tmp_l);
+        tpr1 = tpr1->next;
+        tpr2 = p2->next;
     }
-    dispose_list(tmp_l);
+    return p_mul;
     /*total running time is O(M^2N)*/
 }
 
 List multiply_poly_alg_c(List p1, List p2, List p_mul)
 {
     // waiting to learn Chapter 7
-
 }
 
-    int main(void)
+/**
+ * 输入多项式
+ */ 
+List scan_poly()
 {
-    /**
-     * 
-     */
+    List p1 = create_list();
+    int coef = 0;
+        int exp = 0;
+        char x = '\0';
+        char end = '\0';
+        while (x != '\n' && end != '\n')
+        {
+            scanf("%d%c^%d%c", &coef, &x, &exp, &end);
+            // printf("\n[%d%c^%d]", coef, x, exp);
+            insert(coef, exp, p1);
+        }
+    return p1;
+}
 
+/**
+int main(void)
+{
+  
     List p1 = create_list();
     List p2 = create_list();
     List p_sum = create_list();
@@ -205,3 +248,5 @@ List multiply_poly_alg_c(List p1, List p2, List p_mul)
 
     return 0;
 }
+
+*/
