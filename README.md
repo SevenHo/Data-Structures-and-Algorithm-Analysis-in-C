@@ -21,7 +21,7 @@
 + [Chapter 5: Hashing](./chapter05/README.md)
 
 + [Chapter 6: Priority Queues(Heaps)](./chapter06/README.md)
-+ Chapter 7: Sorting
++ [Chapter 7: Sorting](./chapter07/README.md)
 + Chapter 8: The Disjoint Set ADT
 + Chapter 9: Graph Algorithms
 + Chapter 10: Algorithm Design Techniques
@@ -29,4 +29,4 @@
 
 + [Extension](./extension/README.md)
 
-+ [Solution Manual](./Solution Manual/)
++ [Solution Manual](./SolutionManual/)
