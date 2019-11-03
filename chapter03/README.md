@@ -49,3 +49,22 @@
 
 + [code](./ex3.7_algorithm-1.0.c)
 
+## Exercise 3.8
+
++ [code](./ex3.8_algorithm-1.0.c)
+
+## Exercise 3.10
+
++ [code](./ex3.10_algorithm-1.0.c)
+
+## Exercise 3.11
+
++ [code](./ex3.11_algorithm-1.0.c)
+
+## Exercise 3.12
+
++ [code](./ex3.12_algorithm-1.0.c)
+
+## Exercise 3.14
+
++ [code](./ex3.13_algorithm-1.0.c)
