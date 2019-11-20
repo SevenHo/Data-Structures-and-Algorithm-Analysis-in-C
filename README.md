@@ -22,8 +22,8 @@
 
 + [Chapter 6: Priority Queues(Heaps)](./chapter06/README.md)
 + [Chapter 7: Sorting](./chapter07/README.md)
-+ Chapter 8: The Disjoint Set ADT
-+ Chapter 9: Graph Algorithms
++ [Chapter 8: The Disjoint Set ADT](./chapter08/README.md)
++ [Chapter 9: Graph Algorithms](./chapter09/README.md)
 + Chapter 10: Algorithm Design Techniques
 + Chapter 11: Amortized Analysis
 

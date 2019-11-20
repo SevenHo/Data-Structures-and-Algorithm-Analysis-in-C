@@ -119,7 +119,7 @@ ElementType front_dequeue(Queue Q)
     return e;
 }
 
-
+/*
 int main(void)
 {
     Queue Q = NULL;
@@ -141,3 +141,4 @@ int main(void)
     printf("success...2");
     return 0;
 }
+*/
